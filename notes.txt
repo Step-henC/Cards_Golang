@@ -1,0 +1,46 @@
+package main
+
+
+
+
+func main() {
+
+        //var card string = "Ace of Spades"
+
+        //card := "Ace of Spades" // only for new variable. if reassigning no need for :=
+                                //ex. card = "five of diamonds" reassign value
+
+//         card := newCard()
+//         fmt.Println(card)
+
+        //go uses Slice instead of ArrayList in java ... array that can grow/shrink
+
+        //cards := []string{newCard(), newCard(), "Ace of Diamonds"}
+//         cards := deck{newCard(), newCard(), "Ace of Diamonds"}
+//         cards = append(cards, "Six of Spades")
+
+
+         //create a deck function to do this
+//         for i, card := range cards {
+//         fmt.Println(i, card)
+//         }
+
+         cards := newDeck()
+
+
+         hand, remainingCards := deal(cards, 5)
+         hand.print()
+         remainingCards.print()
+
+}
+
+//outdated with new deck.go
+// func newCard() string {
+// return "Five of Diamonds"
+// 
+// }
+
+
+//test files must specifically end in '_test'
+
+// command run 'go test'
