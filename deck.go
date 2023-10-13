@@ -103,3 +103,40 @@ func (d deck) shuffleDeck() {
 
 	}
 }
+
+func (d deck) getIndices() [][]string {
+
+	var ccc [][]string
+
+	var cc []string
+
+	var c []string
+
+	for i, card := range d {
+
+		cc = append(cc, fmt.Sprint(i))
+		c = append(c, card)
+
+	}
+
+	ccc = append(ccc, cc, c)
+
+	return ccc
+}
+
+func makeEmptyDeck() [][]string {
+
+	var ans [][]string
+
+	var a []string
+	var b []string
+
+	for i := 0; i < 40; i++ {
+		a = append(a, "")
+		b = append(b, "")
+
+	}
+
+	ans = append(ans, a, b)
+	return ans
+}
