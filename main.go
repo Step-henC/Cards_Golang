@@ -42,37 +42,38 @@ func main() {
 
 	deal_button := widget.NewButton("deal", func() {
 
-		dealt_hand, newCards := deal(cardsData, 7)
-		cardsData = newCards
-
-		tableData = newCards.getIndices()
-
 		fileName := "dealt_hand"
 
-		dealt_hand.saveToFile(fileName)
+		if len(cardsData) <= 7 {
 
-		cardTable.Refresh()
+			a.Quit()
+		} else {
+
+			dealt_hand, newCards := deal(cardsData, 7)
+			cardsData = newCards
+
+			tableData = newCards.getIndices()
+
+			dealt_hand.saveToFile(fileName)
+
+			cardTable.Refresh()
+
+		}
 
 	})
 
-	shuff.Resize(fyne.NewSize(100, 100))
+	shuff.Resize(fyne.NewSize(100, 50))
+	shuff.Move(fyne.NewPos(400, 100))
 
-	content := container.NewAdaptiveGrid(3, cardTable, deal_button, shuff)
+	deal_button.Resize(fyne.NewSize(100, 50))
+	deal_button.Move(fyne.NewPos(400, 180))
+
+	cardTable.Resize(fyne.NewSize(300, 500))
+	cardTable.Move(fyne.NewPos(20, 20))
+
+	content := container.NewWithoutLayout(cardTable, deal_button, shuff)
 
 	w.SetContent(content)
 	w.ShowAndRun()
 
-	// cards := newDeck()
-
-	// hand, remainingCards := deal(cards, 5)
-	// hand.print()
-	// remainingCards.print()
-
-	// cards.saveToFile("my_cards")
-
-	// otherCards := newDeckFromFile("./my_cards")
-
-	// otherCards.shuffleDeck()
-
-	// otherCards.print()
 }

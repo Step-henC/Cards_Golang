@@ -124,19 +124,7 @@ func (d deck) getIndices() [][]string {
 	return ccc
 }
 
-func makeEmptyDeck() [][]string {
+func (d deck) getLength() int {
 
-	var ans [][]string
-
-	var a []string
-	var b []string
-
-	for i := 0; i < 40; i++ {
-		a = append(a, "")
-		b = append(b, "")
-
-	}
-
-	ans = append(ans, a, b)
-	return ans
+	return len(d)
 }
